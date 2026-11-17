@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 2 - Input Validation</title>
+</head>
+<body>
+    <input type="text" id="userInput"
+           placeholder="Enter a number">
+    <button onclick="checkInput()">Check</button>
+    <script>
+        // Function to validate the user's input
+        function checkInput() {
+
+            // Get the value entered by the user
+            let input = document.getElementById("userInput").value;
+
+            // Convert input into a number
+            let number = Number(input);
+
+            // Check whether the input is empty or not a number
+            if (input.trim() === "" || !Number.isFinite(number)) {
+                alert("Please insert a number!");
+            }
+
+            // Check whether the number is lower than 10
+            else if (number < 10) {
+                alert("The number is lower than 10");
+            }
+            
+            // Otherwise, the number is 10 or higher
+            else {
+                alert("The number is higher than 10");
+            }
+        }
+    </script>
+</body>
+</html>
