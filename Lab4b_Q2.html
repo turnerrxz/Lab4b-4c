@@ -1,75 +1,52 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Question 2 - JSON Data</title>
 </head>
 <body>
-
     <h2>Book Information</h2>
-
     <p id="bookTitle"></p>
     <p id="bookAuthor"></p>
     <p id="bookGenres"></p>
-
     <script>
 
-        // Load JSON data from books.json
         fetch("Lab4b_Q1.json")
-
-            // Convert JSON response into JavaScript object
             .then(response => response.json())
-
             .then(data => {
-
-                // (a) Get the title of the first book
+k
                 let firstBookTitle = data.Books[0].title;
-
                 console.log("First Book Title: " + firstBookTitle);
 
                 document.getElementById("bookTitle").textContent =
                     "First Book Title: " + firstBookTitle;
 
 
-                // (b) Get the author of the second book
                 let secondBookAuthor = data.Books[1].author;
-
                 console.log("Second Book Author: " + secondBookAuthor);
 
                 document.getElementById("bookAuthor").textContent =
                     "Second Book Author: " + secondBookAuthor;
 
 
-                // (c) Get the genres of all books
                 let allGenres = "";
-
                 console.log("Genres of All Books:");
 
-                // Loop through all books
                 for (let i = 0; i < data.Books.length; i++) {
-
                     let genres = data.Books[i].genres;
-
                     allGenres += genres.join(", ") + "<br>";
 
                     console.log(
                         data.Books[i].title + ": " + genres.join(", ")
                     );
                 }
-
-                // Display all genres
                 document.getElementById("bookGenres").innerHTML =
                     "Genres of All Books:<br>" + allGenres;
 
             })
-
-            // Handle errors
             .catch(error => {
                 console.log("Error loading JSON:", error);
             });
 
     </script>
-
 </body>
 </html>
